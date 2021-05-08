@@ -42,6 +42,7 @@ class UserDetailActivity : AppCompatActivity(),View.OnClickListener {
     var txLocation : MaterialTextView? = null
     var txEmail : MaterialTextView? = null
     var etNotes : EditText? = null
+    var isNoteAvailable  = false
 
     lateinit var apiInterface: ApiInterface
     var retrofit: Retrofit? = null
@@ -68,8 +69,11 @@ class UserDetailActivity : AppCompatActivity(),View.OnClickListener {
         }.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                if(it!=null)
+                if(it!=null){
+                    isNoteAvailable = true
                     etNotes?.setText(it.note)
+                }
+
             },{
                 Log.e("Null",it.message.toString())
             })
@@ -167,8 +171,13 @@ class UserDetailActivity : AppCompatActivity(),View.OnClickListener {
         when(v?.id){
             R.id.iv_back->onBackPressed()
             R.id.btSave->{
+                var text = etNotes?.text.toString()
+                if (text.isBlank()) text=""
                 Observable.fromCallable {
-                    noteDao?.insertNote(Note(username = userResponse!!.login,etNotes?.text.toString()))
+                    if (!isNoteAvailable){
+                        noteDao?.insertNote(Note(username = userResponse!!.login,text))
+                    }else noteDao?.updateNote(Note(username = userResponse!!.login,text))
+
                 }.subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({

@@ -1,8 +1,6 @@
 package com.androiddevtask.database
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 
 
 @Dao
@@ -12,4 +10,7 @@ interface NoteDao {
 
     @Query("SELECT * FROM UsersNotes WHERE username == :username")
     fun getNoteByUser(username: String): Note
+
+    @Update(onConflict = OnConflictStrategy.REPLACE)
+    fun updateNote(note: Note)
 }
