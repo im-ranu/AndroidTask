@@ -51,7 +51,6 @@ object ApiClient {
             val original: Request = chain.request()
             val requestBuilder: Request.Builder = original.newBuilder()
                 .addHeader("Content-Type", "application/json")
-                .addHeader("Authorization","Bearer ${Constants.AUTH_TOKEN}")
 
             val request: Request = requestBuilder.build()
             chain.proceed(request)
