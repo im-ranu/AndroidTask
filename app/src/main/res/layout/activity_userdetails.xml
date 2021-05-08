@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:minHeight="?attr/actionBarSize"
+        android:elevation="5dp"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_baseline_arrow_back_24"/>
+
+            <TextView
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:id="@+id/tx_title"
+                android:layout_weight="1"
+                android:fontFamily="@font/galdeano"
+                android:gravity="start|center_vertical"
+                android:textSize="18sp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/app_name"/>
+
+        </LinearLayout>
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_150sdp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:cardElevation="@dimen/_5sdp"
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:cardPreventCornerOverlap="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/github_logo" />
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/materialCardView"
+        app:layout_constraintStart_toStartOf="@+id/materialCardView"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tx_follower"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="@font/galdeano"
+            android:text=""
+            android:textAlignment="center"
+            android:textSize="18sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tx_following"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="@font/galdeano"
+            android:text=""
+            android:textAlignment="center"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/userDetailCardView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:cardElevation="@dimen/_10sdp"
+        app:layout_constraintEnd_toEndOf="@+id/materialCardView"
+        app:layout_constraintStart_toStartOf="@+id/materialCardView"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+        <LinearLayout
+            android:layout_margin="@dimen/_20sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tx_fullname"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="@font/galdeano"
+                android:text=""
+                android:textAlignment="textStart"
+                android:textSize="24sp" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tx_company"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="@font/galdeano"
+                android:text=""
+                android:textAlignment="textStart"
+                android:textSize="24sp"/>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tx_location"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="@font/galdeano"
+                android:text=""
+                android:textAlignment="textStart"
+                android:textSize="24sp" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tx_email"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="@font/galdeano"
+                android:text=""
+                android:textAlignment="textStart"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/materialCardView2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardElevation="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="@+id/materialCardView"
+            app:layout_constraintStart_toStartOf="@+id/materialCardView"
+            app:layout_constraintTop_toBottomOf="@+id/userDetailCardView">
+
+            <EditText
+                android:id="@+id/etNotes"
+                android:hint=""
+                android:minHeight="@dimen/_100sdp"
+                android:cursorVisible="false"
+                android:gravity="top"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/galdeano"
+                android:inputType="none|textMultiLine"
+                android:padding="@dimen/_10sdp"
+                android:scrollbarStyle="insideOverlay"
+                android:scrollbars="vertical"
+                android:textSize="24sp" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btSave"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:padding="@dimen/_5sdp"
+            android:text="Save"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/materialCardView2"
+            app:layout_constraintStart_toStartOf="@+id/materialCardView2"
+            app:layout_constraintTop_toBottomOf="@+id/materialCardView2" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
