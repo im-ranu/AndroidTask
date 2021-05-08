@@ -133,6 +133,9 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
 
                     override fun onError(e: Throwable?) {
                         Toast.makeText(this@MainActivity, e?.message, Toast.LENGTH_SHORT).show()
+                        if (loadMoreProgress!!.isVisible) {
+                            loadMoreProgress?.visibility = View.GONE
+                        }
                     }
 
                 })
